@@ -9,15 +9,15 @@
 
 ## **High-level View of the Ecosystem**
 
-![Untitled](NonReentrancyIssues/Untitled.png)
+![Untitled](images/Untitled.png)
 
 [https://arxiv.org/abs/2208.13035](https://arxiv.org/abs/2208.13035)
 
 ## Pre-DeFi时代 vs. DeFi 时代
 
-![Untitled](NonReentrancyIssues/Untitled%201.png)
+![Untitled](images/Untitled%201.png)
 
-![Untitled](NonReentrancyIssues/Untitled%202.png)
+![Untitled](images/Untitled%202.png)
 
 This course is focused on Non-reentrancy Issues.
 
@@ -59,7 +59,7 @@ IDE：Remix, Ethereum Studio, Visual Studio Code
 
 ## 前DEFI时代的智能合约安全
 
-![Untitled](NonReentrancyIssues/Untitled%203.png)
+![Untitled](images/Untitled%203.png)
 
 ## 一些典型的非重入漏洞
 
@@ -70,13 +70,13 @@ IDE：Remix, Ethereum Studio, Visual Studio Code
 
  溢出漏洞案例1：**batchOverflow (2018)**
 
-![Untitled](NonReentrancyIssues/Untitled%204.png)
+![Untitled](images/Untitled%204.png)
 
 利用 `uint256(cnt) * value` 上溢出
 
 溢出漏洞案例2：SMT Token
 
-![Untitled](NonReentrancyIssues/Untitled%205.png)
+![Untitled](images/Untitled%205.png)
 
 溢出问题预防：
 
@@ -84,7 +84,7 @@ IDE：Remix, Ethereum Studio, Visual Studio Code
 
 2.使用新版本的编译器，sol@0.8版本后，自动进行检查（消耗Gas，如果使用unchecked进行gas优化后仍需注意溢出问题）
 
-![Untitled](NonReentrancyIssues/Untitled%206.png)
+![Untitled](images/Untitled%206.png)
 
 调用注入攻击案例：
 
@@ -92,13 +92,13 @@ IDE：Remix, Ethereum Studio, Visual Studio Code
 
 案例1:
 
-![Untitled](NonReentrancyIssues/Untitled%207.png)
+![Untitled](images/Untitled%207.png)
 
 案例2: ERC23利用合约Callback，绕过权限限制
 
-![Untitled](NonReentrancyIssues/Untitled%208.png)
+![Untitled](images/Untitled%208.png)
 
-![Untitled](NonReentrancyIssues/Untitled%209.png)
+![Untitled](images/Untitled%209.png)
 
 如何预防？
 
@@ -118,7 +118,7 @@ Untrusted xxx…
 
 Fork出现漏洞，照抄构造函数，导致特权函数对外暴露
 
-![Untitled](NonReentrancyIssues/Untitled%2010.png)
+![Untitled](images/Untitled%2010.png)
 
 [https://etherscan.io/address/0xe82719202e5965Cf5D9B6673B7503a3b92DE20be#code](https://etherscan.io/address/0xe82719202e5965Cf5D9B6673B7503a3b92DE20be#code)
 
@@ -126,13 +126,13 @@ Fork出现漏洞，照抄构造函数，导致特权函数对外暴露
 
 transferOwnership 没有访问控制
 
-![Untitled](NonReentrancyIssues/Untitled%2011.png)
+![Untitled](images/Untitled%2011.png)
 
 [https://bscscan.com/tx/0x0e14cb7eabeeb2a819c52f313c986a877c1fa19824e899d1b91875c11ba053b0](https://bscscan.com/tx/0x0e14cb7eabeeb2a819c52f313c986a877c1fa19824e899d1b91875c11ba053b0)
 
 **Case 3: Recall call vs. delegatecall**
 
-![Untitled](NonReentrancyIssues/Untitled%2012.png)
+![Untitled](images/Untitled%2012.png)
 
 [https://medium.com/coinmonks/delegatecall-calling-another-contract-function-in-solidity-b579f804178c](https://medium.com/coinmonks/delegatecall-calling-another-contract-function-in-solidity-b579f804178c)
 
@@ -140,7 +140,7 @@ transferOwnership 没有访问控制
 
 delegatecall 利用 msg.data 调用未经保护的 initWallet
 
-![Untitled](NonReentrancyIssues/Untitled%2013.png)
+![Untitled](images/Untitled%2013.png)
 
 [https://etherscan.io/tx/0x9dbf0326a03a2a3719c27be4fa69aacc9857fd231a8d9dcaede4bb083def75ec](https://etherscan.io/tx/0x9dbf0326a03a2a3719c27be4fa69aacc9857fd231a8d9dcaede4bb083def75ec)
 
@@ -150,7 +150,7 @@ delegatecall 利用 msg.data 调用未经保护的 initWallet
 
 **Case 4: Contract or EOA?**
 
-![Untitled](NonReentrancyIssues/Untitled%2014.png)
+![Untitled](images/Untitled%2014.png)
 
 合约初始化过程中*extcodesize是0*
 
@@ -158,13 +158,13 @@ delegatecall 利用 msg.data 调用未经保护的 initWallet
 
 当`isContract()`为false时，不能通过isContract判断调用者是人类，看红框
 
-![Untitled](NonReentrancyIssues/Untitled%2015.png)
+![Untitled](images/Untitled%2015.png)
 
 **Subtle Details of the Flurry Finance Hack**
 
 攻击者在EOA 和 contract 身份之间进行转换 ****
 
-![Untitled](NonReentrancyIssues/Untitled%2016.png)
+![Untitled](images/Untitled%2016.png)
 
 [https://mp.weixin.qq.com/s/spjhLaiAR_rTYm91jj3C8g](https://mp.weixin.qq.com/s/spjhLaiAR_rTYm91jj3C8g)
 
